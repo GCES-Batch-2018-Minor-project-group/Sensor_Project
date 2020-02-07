@@ -1,6 +1,7 @@
 #define Trigger 10 // pin code for trigger 
 #define Echo 13 // pin code for echo
 #define Buzzer 3 // pin code for buzzer
+#define Vibrator 12 // pin code for vibrator
 
 long time_taken; // calculates the time taken by the wave to return
 int distance; // claculate the distance between the source and object
@@ -12,9 +13,11 @@ void setup() {
   pinMode(Trigger, OUTPUT);
   pinMode(Echo, INPUT);
   pinMode(Buzzer, OUTPUT);
+  pinMode(Vibrator, OUTPUT);
   
 //  giving 0v to the buzzer pin
   digitalWrite(Buzzer, LOW);
+  digitalWrite(Vibrator, LOW);
 }
 
 void loop() {
@@ -35,11 +38,13 @@ void loop() {
       if(distance >= 200 || distance <=2){
         Serial.println("Out Of Range");
         digitalWrite(Buzzer, LOW);
+        digitalWrite(Vibrator, LOW);
       }
 //      runs this code when the distance is in between 2 cm to 80 cm
       else if(distance <= 80 && distance >= 2){
         Serial.print("Distance: " + distance);
         Serial.println("cm");
+        digitalWrite(Vibrator, HIGH);
         digitalWrite(Buzzer, HIGH);
         tone(Buzzer, 400, 500);
         delay(500);
