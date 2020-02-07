@@ -53,6 +53,10 @@ void loop() {
       else{
         Serial.print("Distance: " + distance);
         Serial.println("cm");
+        digitalWrite(Vibrator, LOW);
+        digitalWrite(Buzzer, LOW);
         delay(500);
       }
+
+      delay(200);
 }
