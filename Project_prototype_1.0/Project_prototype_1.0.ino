@@ -4,7 +4,7 @@
 #define Vibrator 12 // pin code for vibrator
 
 long time_taken; // calculates the time taken by the wave to return
-int distance; // claculate the distance between the source and object
+float distance; // claculate the distance between the source and object
 
 void setup() {
   Serial.begin(9600);
@@ -34,6 +34,7 @@ void loop() {
 // calculating the diatnce
     distance = (time_taken/2)*0.034;
 
+  Serial.print("Distance: ");
 // runs the code if the distancce is more than 200 cm or less than 2 cm
       if(distance >= 200 || distance <=2){
         Serial.println("Out Of Range");
@@ -42,21 +43,22 @@ void loop() {
       }
 //      runs this code when the distance is in between 2 cm to 80 cm
       else if(distance <= 80 && distance >= 2){
-        Serial.print("Distance: " + distance);
-        Serial.println("cm");
+        Serial.print(distance);
+        Serial.println(" cm");
         digitalWrite(Vibrator, HIGH);
         digitalWrite(Buzzer, HIGH);
-        tone(Buzzer, 400, 500);
+        tone(Buzzer, 3000, 500);
         delay(500);
       }
 //      runs the code when distance is not out of range or in buzzer range
       else{
-        Serial.print("Distance: " + distance);
-        Serial.println("cm");
+        Serial.print(distance);
+        Serial.println(" cm");
+//        giving the vibrator and buzzer pin low
         digitalWrite(Vibrator, LOW);
         digitalWrite(Buzzer, LOW);
         delay(500);
       }
-
+  
       delay(200);
 }
