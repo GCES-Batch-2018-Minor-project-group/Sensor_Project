@@ -19,18 +19,18 @@ CODE and Important images, presentation, etc for the project.
 	- Negative (GND)
 
 - GPS chip
-	- TX (2)
-	- RX (3)
+	- TX ()
+	- RX ()
 	- VCC (5v)
 	- GND (GND)
 
 - GSM 800l
-	- TX (8)
-	- RX (9)
+	- TX ()
+	- RX ()
 	- VCC (out + of bug convertor)
 	- GND (GND)
 
-- Bug Convertor
+- Buck Convertor
 	- Out- (GND)
 	- Out+ (Vcc of GSM)
 	- In- (Battery-)
